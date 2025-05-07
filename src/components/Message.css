@@ -1,0 +1,170 @@
+/* src/components/Message.css */
+.message-row {
+    display: flex;
+    margin-bottom: 0.625rem; /* 10px */
+  }
+
+  .message-row.message-left {
+    justify-content: flex-start;
+  }
+
+  .message-row.message-right {
+    justify-content: flex-end;
+  }
+
+  .message-bubble {
+    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    border-radius: 18px;
+    max-width: 75%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    line-height: 1.4; /* Adjusted from 1.5 for potentially more compact text */
+    font-size: 0.9375rem; /* 15px (assuming base 16px) for desktop, can be adjusted per viewport */
+  }
+
+  .ai-message {
+    background-color: #ffffff;
+    color: #333333;
+    border-top-left-radius: 4px;
+  }
+
+  .user-message {
+    background-color: #ffffff; /* Using your theme orange */
+    color: #333333;
+    border-top-right-radius: 4px;
+  }
+
+  .message-bubble img {
+    max-width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin-top: 0.5rem; /* 8px */
+    margin-bottom: 0.5rem; /* 8px */
+  }
+
+  .message-bubble .markdown-image {
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .message-bubble .markdown-image:hover {
+    opacity: 0.85;
+  }
+
+  .message-bubble a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .user-message a {
+    color: #ffffff; /* Keep links in user messages white or a very light contrast */
+    font-weight: bold;
+  }
+
+  .ai-message a {
+    color: #FF6F00; /* AI message links use theme color */
+    font-weight: bold;
+  }
+
+  .error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+  }
+
+  .error-message a {
+    color: #b71c1c;
+  }
+
+  .ai-message.thinking-message .typing-indicator {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+
+  .ai-message.thinking-message .typing-indicator span {
+    height: 7px;
+    width: 7px;
+    background-color: #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: typing-bounce 1.4s infinite ease-in-out both;
+  }
+
+  .ai-message.thinking-message .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+  .ai-message.thinking-message .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+  .thinking-message-content {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    color: #555555;
+  }
+
+  @keyframes typing-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+  }
+  .message-bubble.thinking-bubble {
+    padding: 0.625rem 0.9375rem;
+  }
+
+  .thinking-animation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+  }
+
+  .typing-indicator-pulsating {
+    display: flex;
+    align-items: center;
+  }
+
+  .typing-indicator-pulsating span {
+    height: 5px;
+    width: 5px;
+    background-color: #777777;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    animation: pulsating-dot 1.4s infinite ease-in-out both;
+  }
+
+  .typing-indicator-pulsating span:nth-child(1) { animation-delay: -0.32s; }
+  .typing-indicator-pulsating span:nth-child(2) { animation-delay: -0.16s; }
+  .typing-indicator-pulsating span:nth-child(3) { animation-delay: 0s; }
+
+  @keyframes pulsating-dot {
+    0%, 80%, 100% {
+      transform: scale(0.6);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1.0);
+      opacity: 1;
+    }
+  }
+
+  .thinking-text {
+    font-style: italic;
+    color: #a0a0a0;
+    margin-left: 0.625rem; /* 10px */
+  }
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 767px) {
+    .message-bubble {
+        padding: 0.5rem 0.75rem; /* 8px 12px */
+        font-size: 0.875rem; /* 14px, adjust based on ChatWindow's base font */
+        max-width: 80%; /* Allow slightly wider bubbles on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .message-bubble {
+        font-size: 0.8125rem; /* 13px */
+        max-width: 85%;
+    }
+}

@@ -1,0 +1,55 @@
+/* src/components/Suggestions.css */
+.suggestions-area {
+    padding: 0.5rem 0; /* 8px 0 */
+    margin-bottom: 0.5rem; /* 8px */
+  }
+  
+  .suggestions-intro {
+    font-size: 0.8125rem; /* 13px */
+    color: #555;
+    margin-bottom: 0.625rem; /* 10px */
+    padding: 0 0.25rem; /* 0 4px */
+  }
+  
+  .suggestion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.625rem 0.75rem; /* 10px 12px */
+    margin-bottom: 0.375rem; /* 6px */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.875rem; /* 14px */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .suggestion-item span {
+    flex-grow: 1;
+    margin-right: 0.5rem; /* 8px */
+  }
+  
+  .suggestion-icon {
+    color: #FF6F00;
+    flex-shrink: 0;
+  }
+  
+  /* --- Mobile Adjustments --- */
+  @media (max-width: 767px) {
+      .suggestions-intro {
+          font-size: 0.75rem; /* 12px */
+      }
+      .suggestion-item {
+          padding: 0.5rem 0.625rem; /* 8px 10px */
+          font-size: 0.8125rem; /* 13px */
+      }
+  }

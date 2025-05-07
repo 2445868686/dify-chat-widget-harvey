@@ -1,0 +1,90 @@
+/* src/components/ImageModal.css */
+.image-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* 修改背景为更透明的黑色，以实现“轻微黑色不透明度”的效果 */
+    background-color: rgba(0, 0, 0, 0.65); /* 您可以调整这个 0.65 来改变不透明度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    /* 移除 backdrop 的 padding，让图片可以更接近屏幕边缘，由图片自身控制边距 */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image-modal-content {
+    position: relative;
+    /* 移除背景色，使其透明，这样只有 backdrop 的颜色作为背景 */
+    background-color: transparent;
+    /* 移除阴影，因为不需要明显的容器感 */
+    box-shadow: none;
+
+    /* 仍然需要最大尺寸限制，图片将在此框内 contain */
+    /* 图片将占据尽可能大的空间，同时完整显示 */
+    max-width: 95vw;  /* 允许图片更宽，更接近屏幕边缘 */
+    max-height: 95vh; /* 允许图片更高 */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* overflow: hidden 仍然重要，以防万一，但如果图片正确 contain，则不会溢出 */
+    overflow: hidden;
+    
+    /* 移除内边距 padding，图片将直接接触其最大边界 */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image-modal-image {
+    display: block;
+    
+    /* 图片最大尺寸为其容器的100% */
+    max-width: 100%;
+    max-height: 100%;
+    
+    /* 核心：确保图片完整显示并保持宽高比 */
+    object-fit: contain;
+    
+    /* 缩放原点和过渡 */
+    transform-origin: center center;
+    transition: transform 0.2s ease-out;
+
+    /* 可选：如果希望图片和非常边缘的屏幕之间总有一些最小边距，可以加在这里
+       例如: margin: 10px;
+       但这会使得图片在已缩放的情况下周围也多出10px空白。
+       通常，max-width/max-height 配合 backdrop 的透明度已经足够。
+    */
+    /* 图片本身可以有轻微的阴影，以在非常亮的背景图片上突出显示（可选） */
+    /* box-shadow: 0 0 15px rgba(0,0,0,0.3); */
+}
+
+.image-modal-close-button {
+    position: fixed; /* 改为 fixed 定位，使其相对于视口 */
+    top: 20px;       /* 距离视口顶部 */
+    right: 20px;      /* 距离视口右侧 */
+    background: rgba(40, 40, 40, 0.6); /* 背景深一点，确保可见 */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* 按钮可以有自己的阴影 */
+    z-index: 2010; /* 比 backdrop 更高一层 */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.image-modal-close-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}

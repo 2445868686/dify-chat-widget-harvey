@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/logo-ad.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo-ad.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Harvey 知识库</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        overflow: hidden; /* 防止在某些情况下出现不必要的滚动条 */
+      }
+
+      .app-container {
+        display: flex;
+        flex-direction: column; /* 改为垂直排列，方便定位标题 */
+        height: 100%;
+        /* 移除 align-items: center; 因为标题将通过其他方式定位 */
+      }
+
+      .demo-title-area {
+        /* flex: 1;  不再需要 flex:1 来占据剩余空间 */
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
+        /* 以上 flex 属性移除，改为使用 padding-top 来定位 */
+
+        width: 100%; /* 标题区域占满宽度 */
+        padding-top: calc(100vh / 3); /* 设置顶部内边距为视口高度的1/3 */
+        box-sizing: border-box; /* padding 不会增加总高度 */
+        text-align: center;
+        /* background-color: #f0f0f0; */ /* 用于调试 */
+      }
+
+      .demo-title-area h1 {
+        font-size: 4em;   /* 稍微调整字体大小，您可以根据需要修改 */
+        color: #333;
+        margin: 0;
+        /* 将标题从其容器的顶部向下推移其自身高度的一半，以使其中心大致在1/3处 */
+        /* 这是一个近似值，因为字体实际高度和行高会影响。更精确的控制可能需要绝对定位。*/
+        transform: translateY(-50%); /* 将标题向上移动自身高度的50% */
+      }
+
+      #root {
+        position: relative; /* 保持不变，用于浮动按钮和聊天窗口的定位 */
+        /* 如果标题区域不是flex item了，root也不需要直接参与外部的flex布局 */
+        /* 它将自然地在标题区域之后，或者由于聊天机器人是浮动的，它的位置影响不大 */
+      }
+
+      /* 移除 .page-header-title，因为它与新的标题定位方式冲突 */
+
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div class="app-container">
+      <div class="demo-title-area">
+        <h1>知识库问答机器人演示</h1>
+      </div>
+      <div id="root"></div>
+    </div>
+
+  </body>
+</html>

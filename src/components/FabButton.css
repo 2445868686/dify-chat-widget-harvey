@@ -1,0 +1,43 @@
+/* src/components/FabButton.css */
+.fab-chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+  }
+
+  .fab-chat-button:hover {
+    background-color: #444444;
+    transform: scale(1.1);
+  }
+
+  .fab-chat-button svg {
+    width: 28px;
+    height: 28px;
+  }
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 767px) {
+    .fab-chat-button {
+        bottom: 20px;
+        right: 20px;
+        width: 56px; /* Slightly smaller */
+        height: 56px;
+    }
+    .fab-chat-button svg {
+        width: 26px;
+        height: 26px;
+    }
+}
