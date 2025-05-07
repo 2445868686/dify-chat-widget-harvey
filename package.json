@@ -2,6 +2,7 @@
   "name": "dify-chat-widget",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://2445868686.github.io/dify-chat-widget-harvey"
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
